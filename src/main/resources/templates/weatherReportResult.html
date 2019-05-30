@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'id: ' + ${greeting.id}" />
+<p th:text="'Request date: ' + ${greeting.requestedDate}" />
+<p th:text="'Weather date: ' + ${greeting.today}" />
+<p th:text="'city: ' + ${greeting.city}" />
+<p th:text="'Forecast Today: ' + ${greeting.weatherDescription}" />
+<p th:text="'Temperature (F): ' + ${greeting.content}" />
+<p th:text="'Temperature (C): ' + ${greeting.id}" />
+<p th:text="'Sunrise Time: ' + ${greeting.sunrise}" />
+<p th:text="'Sunset Time: ' + ${greeting.sunset}" />
+<a href="/weatherReport">Submit another message</a>
+</body>
+</html>
