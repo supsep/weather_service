@@ -7,19 +7,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Date;
+
 @Controller
 public class WeatherController {
 
 
     @GetMapping("/weatherReport")
     public String weatherReportForm(Model model) {
-        model.addAttribute("weatherReport", new WeatherReport());
+        final WeatherReport weatherReport = new WeatherReport();
+        model.addAttribute("weatherReport", weatherReport);
         return "weatherReport";
     }
 
     @PostMapping("/weatherReport")
     public String weatherReportSubmit(@ModelAttribute WeatherReport weatherReport) {
-        return "result";
+        weatherReport.setRequestedDate(new Date());
+        weatherReport.setTemperatureCelcius(69.9);
+        return "weatherReportResult";
     }
 
 }

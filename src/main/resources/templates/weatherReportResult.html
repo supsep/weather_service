@@ -6,15 +6,15 @@
 </head>
 <body>
 <h1>Result</h1>
-<p th:text="'id: ' + ${greeting.id}" />
-<p th:text="'Request date: ' + ${greeting.requestedDate}" />
-<p th:text="'Weather date: ' + ${greeting.today}" />
-<p th:text="'city: ' + ${greeting.city}" />
-<p th:text="'Forecast Today: ' + ${greeting.weatherDescription}" />
-<p th:text="'Temperature (F): ' + ${greeting.content}" />
-<p th:text="'Temperature (C): ' + ${greeting.id}" />
-<p th:text="'Sunrise Time: ' + ${greeting.sunrise}" />
-<p th:text="'Sunset Time: ' + ${greeting.sunset}" />
+<!--<p th:text="'id: ' + ${weatherReport.id}" />-->
+<p th:text="'Request date: ' + ${weatherReport.requestedDate}" />
+<!--<p th:text="'Weather date: ' + ${weatherReport.today}" />-->
+<p th:text="'city: ' + ${weatherReport.city}" />
+<!--<p th:text="'Forecast Today: ' + ${weatherReport.weatherDescription}" />-->
+<!--<p th:text="'Temperature (F): ' + ${weatherReport.temperatureFahrenheit}" />-->
+<!--<p th:text="'Temperature (C): ' + ${weatherReport.temperatureCelsius}" />-->
+<!--<p th:text="'Sunrise Time: ' + ${weatherReport.sunrise}" />-->
+<!--<p th:text="'Sunset Time: ' + ${weatherReport.sunset}" />-->
 <a href="/weatherReport">Submit another message</a>
 </body>
 </html>
