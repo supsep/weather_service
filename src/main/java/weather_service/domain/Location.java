@@ -20,6 +20,14 @@ public class Location implements Serializable {
     private String id;
 
     // ISO-3166 code for country
-    private String country;
-    private Locale local;
+    private String countryCode;
+    private String countryName;
+
+    private Locale locale;
+
+    public void setCountry(String countryCode) {
+        this.countryCode = countryCode;
+        Locale locale = new Locale("en", countryCode);
+        setCountryName(locale.getDisplayName());
+    }
 }

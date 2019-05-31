@@ -1,17 +1,19 @@
 package weather_service.service;
 
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 import weather_service.WeatherApplicationProperties;
-import weather_service.domain.WeatherRequest;
+import weather_service.domain.WeatherReport;
 import weather_service.exception.ValidationException;
 
 import java.net.URI;
 
 @Slf4j
+@Service
 public class WeatherApiServiceImpl implements WeatherApiService {
     private RestTemplate restTemplate = new RestTemplate();
     private String apiEndpoint;
@@ -23,7 +25,7 @@ public class WeatherApiServiceImpl implements WeatherApiService {
     }
 
     @Override
-    public WeatherRequest getWeatherForCity(String city) throws ValidationException {
+    public WeatherReport getWeatherForCity(String city) throws ValidationException {
         if (log.isDebugEnabled()) {
             log.debug("City to search up: {}", city);
             log.debug("Accessing API URL: {}. API KEY: {}", apiEndpoint, apiKey);
@@ -36,10 +38,10 @@ public class WeatherApiServiceImpl implements WeatherApiService {
         return invokeApiRequest(url);
     }
 
-    private WeatherRequest invokeApiRequest(URI url) {
-
+    private WeatherReport invokeApiRequest(URI url) {
+        return restTemplate.getForObject(url, WeatherReport.class);
     }
-    
+
 
     private void validateRequest(String city) throws ValidationException {
         if (StringUtils.isEmpty(city)) {
