@@ -4,8 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import weather_service.domain.WeatherApplicationProperties;
-
 @SpringBootApplication
 @EnableConfigurationProperties(WeatherApplicationProperties.class)
 public class WeatherApplication {

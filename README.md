@@ -14,7 +14,7 @@ Get todays forecast.
 ``` /gradlew bootRun ```
 
 Go to the url:
-```  http://localhost:8080/weatherReport ```
+```  http://localhost:8080/weatherRequest ```
 
 ### Report
 

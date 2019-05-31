@@ -7,33 +7,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import weather_service.domain.WeatherReport;
+import lombok.extern.slf4j.Slf4j;
+import weather_service.domain.WeatherRequest;
 
 import java.util.Date;
 
+@Slf4j
 @Controller
 public class WeatherController {
 
 
     @GetMapping("/weatherReport")
     public String weatherReportForm(Model model) {
-        final WeatherReport weatherReport = new WeatherReport();
-        model.addAttribute("weatherReport", weatherReport);
-        return "weatherReport";
+        log.debug(" deb");
+        final WeatherRequest weatherRequest = new WeatherRequest();
+        model.addAttribute("weatherRequest", weatherRequest);
+        return "weatherRequest";
     }
 
-    @PostMapping("/weatherReport")
-    public String weatherReportSubmit(@ModelAttribute WeatherReport weatherReport) {
-        weatherReport.setRequestedDate(new Date());
+    @PostMapping("/weatherRequest")
+    public String weatherReportSubmit(@ModelAttribute WeatherRequest weatherRequest) {
+        log.debug(" deb");
+        weatherRequest.setRequestedDate(new Date());
         // Set by city service
 
         // Set by weather service
-        weatherReport.setToday(new Date());
-        weatherReport.setFahrenheit(69.9);
-        weatherReport.setCelsius(69.9);
-        weatherReport.setSunrise(new Date());
-        weatherReport.setSunset(new Date());
-        weatherReport.setWeatherDescription("Cloudy with a chance of cats");
+
 
 
         return "weatherReportResult";

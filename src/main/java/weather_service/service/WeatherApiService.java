@@ -1,8 +1,7 @@
 package weather_service.service;
 
-import weather_service.domain.WeatherReport;
-
-import java.util.List;
+import weather_service.domain.WeatherRequest;
+import weather_service.exception.ValidationException;
 
 public interface WeatherApiService {
 
@@ -11,5 +10,5 @@ public interface WeatherApiService {
      * @param city
      * @return
      */
-    List<WeatherReport> getWeather(String city);
+    WeatherRequest getWeatherForCity(String city) throws ValidationException;
 }
