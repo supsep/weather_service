@@ -38,16 +38,23 @@ Go to the url:
 ``` ./gradlew test ```
 
  ## Built With
-* Gradle
+* Gradle 5
 * Java 8
 * Junit 4
 * IntellJ IDEA CE
+* Spring MVC
+* Spring Boot
+* ThymeLeaf
+* Google Java Style Guide
+* Lombok
 
 ## Resources
- *   openweathermap.org
+ * openweathermap.org
  * [https://spring.io/guides/](https://spring.io/guides/)
+ * 404 Gif: https://collectui.com/challenges/404-page
 
-## TODO * Unit Tests
+## TODO
+* Add autocomplete for City names
 * Component Tests
 * Unit test
 
