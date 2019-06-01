@@ -1,34 +1,85 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Weather</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 </head>
+
 <body>
-<h1><span th:text="${weatherReport.location.name} + ', ' + ${weatherReport.location.countryName}"></span>.</h1>
 
+<header class="navbar">
+    <section class="navbar-section">
+        Weather search
+    </section>
+    <section class="navbar-center">
+        By Sepehr Taheri
+    </section>
+    <section class="navbar-section">
+        <a href="https://linkedin.com/in/supsep" class="btn btn-link">Twitter</a>
+        <a href="https://github.com/supsep" class="btn btn-link">GitHub</a>
+    </section>
+</header>
 
-<p th:text="'Weather date: ' + ${#dates.format(weatherReport.timestamp * 1000, 'dd-MM-yyyy HH:mm:ss')}"></p>
-<h2> <img th:src="@{${'http://openweathermap.org/img/w/' + weatherReport.weather.icon + '.png'}}"> </h2>
+<div class="empty">
+    <h2 th:text="${#dates.format(weatherReport.timestamp * 1000, 'EEE, MMM d, yyyy')}"></h2>
+    <h2 th:text="${weatherReport.location.name} + ', ' + ${weatherReport.location.countryName}"></h2>
+    <img class="icon icon-3x" th:src="@{${'http://openweathermap.org/img/w/' + weatherReport.weather.icon + '.png'}}">
+    <p class="title h5"><span th:text="${weatherReport.weather.status}"></span></p>
+    <p class="empty-subtitle"><span th:text="${weatherReport.weather.statusDescription}"></span></p>
 
+    <table border="1" cellpadding="10" cellspacing="0" length="250px" class="empty-subtitle">
+        <tbody>
+        <div th:object="${weatherReport.weather}">
+            <tr>
+                <td>Temperature °C (°F)</td>
+                <td align="middle"><span th:text="${#object.tempCelsius} + ' (' + ${#object.tempFahrenheit} + ')'"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Max °C (°F)</td>
+                <td align="middle"><span th:text="${#object.maxTempCelsius} + ' (' + ${#object.maxTempFahrenheit} + ')'"></span></td>
+            </tr>
+            <tr>
+                <td>Min °C (°F)</td>
+                <td align="middle"><span th:text="${#object.minTempCelsius} + ' ( ' + ${#object.minTempFahrenheit} + ')'"></span></td>
+            </tr>
+            <tr>
+                <td>Pressure</td>
+                <td align="middle"><span th:text="${#object.pressure}"></span> hPa.</td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td align="middle"><span th:text="${#object.humidity}"></span>%</td>
+            </tr>
+            <tr>
+                <td>Wind</td>
+                <td align="middle"><span th:text="${#object.windSpeed} + 'm/s, ' + ${#object.windDegrees}"></span>&#176;</td>
+            </tr>
+            <tr>
+                <td>Sunrise</td>
+                <td align="middle"><span th:text="${#dates.format(#object.sunrise * 1000, 'hh:mm a')}"></span></td>
+            </tr>
+            <tr>
+                <td>Sunset</td>
+                <td align="middle"><span th:text="${#dates.format(#object.sunset * 1000, 'hh:mm a')}"></span></td>
+            </tr>
+            <tr>
+                <td>Visbility</td>
+                <td align="middle"><span th:text="${#object.pressure}"></span>m</td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
 
-<br>
-<table border="1" cellpadding="10" cellspacing="0" length="250px">
-    <tbody>
-    <div th:object="${weatherReport.weather}">
-    <tr><td>Temperature</td><td  align="middle"><span th:text="${#object.temp} - 273.15"></span></td></tr>
-    <tr><td>Min/Max</td><td  align="middle"><span th:text="${#object.minTemp} + '/ ' + ${#object.maxTemp}"></span></td></tr>
-    <tr><td>Pressure</td><td  align="middle"><span th:text="${#object.pressure}"></span> hPa.</td></tr>
-    <tr><td>Humidity</td><td  align="middle"><span th:text="${#object.humidity}"></span>%</td></tr>
-    <tr><td>Wind</td><td  align="middle"><span th:text="${#object.windSpeed} + 'm/s, ' + ${#object.windDegrees}"></span>&#176;</td></tr>
-    <tr><td>Sunrise</td><td  align="middle"><span th:text="${#dates.format(#object.sunrise * 1000, 'hh:mm a')}"></span></td></tr>
-    <tr><td>Sunset</td><td  align="middle"><span th:text="${#dates.format(#object.sunset * 1000, 'hh:mm a')}"></span></td></tr>
-    <tr><td>visbility</td><td  align="middle"><span th:text="${#object.pressure}"></span>m</td></tr>
-    </div>
-    </tbody>
-</table>
+    <form class="empty-action" action="/weatherReport">
+        <input class="btn btn-primary" type="submit" value="Search Another City" />
+    </form>
 </div>
 
-<a href="/weatherReport">Submit another message</a>
 </body>
+
 </html>

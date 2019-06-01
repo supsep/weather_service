@@ -23,6 +23,7 @@ bootJar {
     version =  '0.1.0'
 }
 
+// Uncomment for debug
 //applicationDefaultJvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000" ]
 
 repositories {

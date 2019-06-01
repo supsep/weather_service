@@ -3,8 +3,6 @@ package weather_service.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,16 +38,14 @@ public class WeatherController {
     }
 
     @PostMapping("/weatherReport")
-    public ModelAndView weatherReportSubmit(@ModelAttribute WeatherRequest weatherRequest) throws ValidationException {
+    public ModelAndView weatherReportSubmit(@ModelAttribute WeatherRequest weatherRequest)
+            throws ValidationException {
         log.debug(" deb");
         weatherRequest.setRequestedDate(new Date());
         ModelAndView modelAndView = new ModelAndView("weatherReportResult");
-//        ModelMap model = new ModelMap();
-
         WeatherReport weatherReportForCity = weatherService
             .getWeatherReportForCity(weatherRequest.getCity());
-//        model.addAttribute("weatherReport",weatherReportForCity);
-        modelAndView.addObject("weatherReport",weatherReportForCity);
+        modelAndView.addObject("weatherReport", weatherReportForCity);
         return modelAndView;
     }
 }

@@ -1,18 +1,13 @@
 package weather_service.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
-
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-import lombok.Data;
-
-import java.io.Serializable;
 import java.util.Map;
-import org.springframework.lang.Nullable;
+import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)

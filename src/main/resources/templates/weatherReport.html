@@ -1,14 +1,40 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Weather</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 </head>
+
 <body>
-<h1>Form</h1>
-<form action="#" th:action="@{/weatherReport}" th:object="${weatherRequest}" method="post">
-    <p>City: <input type="text" th:field="*{city}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+
+<header class="navbar">
+    <section class="navbar-section">
+        Weather search
+    </section>
+    <section class="navbar-center">
+        By Sepehr Taheri
+    </section>
+    <section class="navbar-section">
+        <a href="https://linkedin.com/in/supsep" class="btn btn-link">Twitter</a>
+        <a href="https://github.com/supsep" class="btn btn-link">GitHub</a>
+    </section>
+</header>
+
+<div class="empty">
+    <div class="empty-icon"><i class="icon icon-3x icon-location"></i></div>
+    <p class="empty-title h5">Weather forecast</p>
+    <p class="empty-subtitle">Type a city name</p>
+    <form action="#" th:action="@{/weatherReport}" th:object="${weatherRequest}" method="post" class="empty-action input-group input-inline">
+        <input class="form-input" type="text" th:field="*{city}" />
+        <input class="btn btn-primary input-group-btn" type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </form>
+</div>
+
 </body>
+
 </html>

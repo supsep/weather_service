@@ -49,14 +49,15 @@ Go to the url:
 * Lombok
 
 ## Resources
- * openweathermap.org
- * [https://spring.io/guides/](https://spring.io/guides/)
+ * [openweathermap](openweathermap.org)
+ * [Spring](https://spring.io/guides/)
+ * [Spectre.css](https://picturepan2.github.io/spectre/index.html)
  * 404 Gif: https://collectui.com/challenges/404-page
 
 ## TODO
-* Add autocomplete for City names
-* Component Tests
-* Unit test
+* Add autocomplete for City names.
+* Add detailed reports for rain and snow.
+* Component Tests.
 
 
 ## License
