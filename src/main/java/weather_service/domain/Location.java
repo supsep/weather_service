@@ -27,7 +27,7 @@ public class Location implements Serializable {
 
     public void setCountry(String countryCode) {
         this.countryCode = countryCode;
-        Locale locale = new Locale("en", countryCode);
-        setCountryName(locale.getDisplayName());
+        setLocale(new Locale("en", countryCode));
+        setCountryName(getLocale().getDisplayCountry());
     }
 }

@@ -20,12 +20,12 @@ public class WeatherApiServiceImpl implements WeatherApiService {
     private String apiKey;
 
     public WeatherApiServiceImpl(WeatherApplicationProperties weatherApplicationProperties) {
-        this.apiKey = weatherApplicationProperties.getWeatherApiProperties().getApiKey();
-        this.apiEndpoint = weatherApplicationProperties.getWeatherApiProperties().getEndpoint();
+        this.apiKey = weatherApplicationProperties.getKey();
+        this.apiEndpoint = weatherApplicationProperties.getEndpoint();
     }
 
     @Override
-    public WeatherReport getWeatherForCity(String city) throws ValidationException {
+    public WeatherReport getWeatherReportForCity(String city) throws ValidationException {
         if (log.isDebugEnabled()) {
             log.debug("City to search up: {}", city);
             log.debug("Accessing API URL: {}. API KEY: {}", apiEndpoint, apiKey);

@@ -11,5 +11,5 @@ public interface WeatherApiService {
      * @param city
      * @return
      */
-    WeatherReport getWeatherForCity(String city) throws ValidationException;
+    WeatherReport getWeatherReportForCity(String city) throws ValidationException;
 }

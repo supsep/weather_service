@@ -27,7 +27,7 @@ public class Weather implements Serializable {
     private double maxTemp;
 
     // Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
-    private long pressure;
+    private int pressure;
 
     // Humidity, %
     private int humidity;

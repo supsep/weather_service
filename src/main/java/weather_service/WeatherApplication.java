@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableConfigurationProperties(WeatherApplicationProperties.class)
+//@EnableConfigurationProperties(WeatherApplicationProperties.class)
 public class WeatherApplication {
 
 //    @Bean

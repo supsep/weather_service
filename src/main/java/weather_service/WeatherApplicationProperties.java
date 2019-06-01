@@ -3,19 +3,12 @@ package weather_service;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import lombok.Data;
-import lombok.Getter;
+import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties("app")
+@Data
+@Configuration
+@ConfigurationProperties(prefix = "application.api")
 public class WeatherApplicationProperties {
-    @Getter
-    private final WeatherApiProperties weatherApiProperties = new WeatherApiProperties();
-
-    /**
-     * Class to hold API properties.
-     */
-    @Data
-    public class WeatherApiProperties {
-        private String apiKey;
-        private String endpoint;
-    }
+    private String key;
+    private String endpoint;
 }

@@ -5,16 +5,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Result</h1>
-<!--<p th:text="'id: ' + ${weatherRequest.id}" />-->
-<p th:text="'Request date: ' + ${weatherRequest.requestedDate}" />
-<p th:text="'Weather date: ' + ${weatherRequest.today}" />
-<p th:text="'city: ' + ${weatherRequest.city}" />
-<p th:text="'Forecast Today: ' + ${weatherRequest.weatherDescription}" />
-<p th:text="'Temperature (F): ' + ${weatherRequest.fahrenheit}" />
-<p th:text="'Temperature (C): ' + ${weatherRequest.celsius}" />
-<p th:text="'Sunrise Time: ' + ${weatherRequest.sunrise}" />
-<p th:text="'Sunset Time: ' + ${weatherRequest.sunset}" />
-<a href="/weatherRequest">Submit another message</a>
+<h1><span th:text="${weatherReport.location.name} + ', ' + ${weatherReport.location.countryName}"></span>.</h1>
+
+
+<p th:text="'Weather date: ' + ${#dates.format(weatherReport.timestamp * 1000, 'dd-MM-yyyy HH:mm:ss')}"></p>
+<h2> <img th:src="@{${'http://openweathermap.org/img/w/' + weatherReport.weather.icon + '.png'}}"> </h2>
+
+
+<br>
+<table border="1" cellpadding="10" cellspacing="0" length="250px">
+    <tbody>
+    <div th:object="${weatherReport.weather}">
+    <tr><td>Temperature</td><td  align="middle"><span th:text="${#object.temp} - 273.15"></span></td></tr>
+    <tr><td>Min/Max</td><td  align="middle"><span th:text="${#object.minTemp} + '/ ' + ${#object.maxTemp}"></span></td></tr>
+    <tr><td>Pressure</td><td  align="middle"><span th:text="${#object.pressure}"></span> hPa.</td></tr>
+    <tr><td>Humidity</td><td  align="middle"><span th:text="${#object.humidity}"></span>%</td></tr>
+    <tr><td>Wind</td><td  align="middle"><span th:text="${#object.windSpeed} + 'm/s, ' + ${#object.windDegrees}"></span>&#176;</td></tr>
+    <tr><td>Sunrise</td><td  align="middle"><span th:text="${#dates.format(#object.sunrise * 1000, 'hh:mm a')}"></span></td></tr>
+    <tr><td>Sunset</td><td  align="middle"><span th:text="${#dates.format(#object.sunset * 1000, 'hh:mm a')}"></span></td></tr>
+    <tr><td>visbility</td><td  align="middle"><span th:text="${#object.pressure}"></span>m</td></tr>
+    </div>
+    </tbody>
+</table>
+</div>
+
+<a href="/weatherReport">Submit another message</a>
 </body>
 </html>
