@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Weather</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <section class="navbar-section">
+    Weather search
+  </section>
+  <section class="navbar-center">
+    By Sepehr Taheri
+  </section>
+  <section class="navbar-section">
+    <a href="https://linkedin.com/in/supsep" class="btn btn-link">Twitter</a>
+    <a href="https://github.com/supsep" class="btn btn-link">GitHub</a>
+  </section>
+</header>
+
+<div class="empty">
+  <div class="empty-icon"><i class="icon icon-3x icon-location"></i></div>
+  <p class="empty-title h5">Error</p>
+  <p class="empty-subtitle">Try Again</p>
+  <form class="empty-action" action="/weatherReport">
+    <input class="btn btn-primary" type="submit" value="Go back"/>
+  </form>
+</div>
+
+</body>
+
+</html>

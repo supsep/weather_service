@@ -3,9 +3,11 @@ package weather_service.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
@@ -47,5 +49,13 @@ public class WeatherController {
             .getWeatherReportForCity(weatherRequest.getCity());
         modelAndView.addObject("weatherReport", weatherReportForCity);
         return modelAndView;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleAllException(Exception ex) {
+
+        ModelAndView model = new ModelAndView("error");
+        return model;
+
     }
 }
