@@ -52,10 +52,11 @@ Go to the url:
  * [openweathermap](openweathermap.org)
  * [Spring](https://spring.io/guides/)
  * [Spectre.css](https://picturepan2.github.io/spectre/index.html)
- * 404 Gif: https://collectui.com/challenges/404-page
 
 ## TODO
 * Add autocomplete for City names.
+* Sanitize input and protect against XSS.
+* Expand error handling to support error message.
 * Add detailed reports for rain and snow.
 * Component Tests.
 

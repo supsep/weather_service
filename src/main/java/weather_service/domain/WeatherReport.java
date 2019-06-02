@@ -48,7 +48,7 @@ public class WeatherReport implements Serializable {
     }
 
     @JsonSetter("weather")
-    public void setWeather(List<Object> weather) {
+    public void setWeatherJson(List<Object> weather) {
         HashMap<String, String> weatherMap = (HashMap<String, String>) weather.get(0);
         getWeather().setStatus(weatherMap.get("main"));
         getWeather().setStatusDescription(weatherMap.get("description"));
@@ -62,9 +62,9 @@ public class WeatherReport implements Serializable {
 
     @JsonSetter("main")
     public void setMain(Map<String, Object> main) {
-        getWeather().setTemp((double) main.get("temp"));
-        getWeather().setMinTemp((double) main.get("temp_min"));
-        getWeather().setMaxTemp((double) main.get("temp_max"));
+        getWeather().setTemp((float) main.get("temp"));
+        getWeather().setMinTemp((float) main.get("temp_min"));
+        getWeather().setMaxTemp((float) main.get("temp_max"));
         getWeather().setPressure((int) main.get("pressure"));
         getWeather().setHumidity((int) main.get("humidity"));
     }

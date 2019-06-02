@@ -4,10 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.client.UnknownHttpStatusCodeException;
 import org.springframework.web.util.UriTemplate;
 
 import lombok.extern.slf4j.Slf4j;
@@ -54,6 +52,7 @@ public class WeatherApiServiceImpl implements WeatherApiService {
                 rcre.getRawStatusCode(), rcre.getMessage());
         }
 
+        log.debug("Weather report for city: {}, report: {}", city, weatherReport);
         return weatherReport;
     }
 

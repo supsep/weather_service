@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "application.api")
 public class WeatherApplicationProperties {
+    // API Key for Endpoint
     private String key;
+
+    // API Endpoint URL
     private String endpoint;
 }

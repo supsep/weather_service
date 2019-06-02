@@ -2,7 +2,6 @@ package weather_service.domain;
 
 import static weather_service.utils.TemperatureUtility.kelvinToCelsius;
 import static weather_service.utils.TemperatureUtility.kelvinToFahrenheit;
-import static weather_service.utils.TemperatureUtility.roundToTwoPlaces;
 
 import lombok.Data;
 
@@ -20,18 +19,18 @@ public class Weather implements Serializable {
     private String icon;
 
     // Temperature in Kelvin
-    private double tempCelsius;
-    private double tempFahrenheit;
+    private float tempCelsius;
+    private float tempFahrenheit;
 
     // Minimum temperature at the moment. This is deviation from current temp that is possible for
     // large cities and megalopolises geographically expanded
-    private double minTempCelsius;
-    private double minTempFahrenheit;
+    private float minTempCelsius;
+    private float minTempFahrenheit;
 
     // Minimum temperature at the moment. This is deviation from current temp that is possible for
     // large cities and megalopolises geographically expanded
-    private double maxTempCelsius;
-    private double maxTempFahrenheit;
+    private float maxTempCelsius;
+    private float maxTempFahrenheit;
 
     // Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
     private int pressure;
@@ -54,19 +53,19 @@ public class Weather implements Serializable {
     // Visibility in meters
     private long visibility;
 
-    public void setTemp(double tempInKelvin){
-        setTempCelsius(roundToTwoPlaces(kelvinToCelsius(tempInKelvin)));
-        setTempFahrenheit(roundToTwoPlaces(kelvinToFahrenheit(tempInKelvin)));
+    public void setTemp(float tempInKelvin){
+        setTempCelsius(kelvinToCelsius(tempInKelvin));
+        setTempFahrenheit(kelvinToFahrenheit(tempInKelvin));
     }
 
-    public void setMinTemp(double tempInKelvin){
-        setMinTempCelsius(roundToTwoPlaces(kelvinToCelsius(tempInKelvin)));
-        setMinTempFahrenheit(roundToTwoPlaces(kelvinToFahrenheit(tempInKelvin)));
+    public void setMinTemp(float tempInKelvin){
+        setMinTempCelsius(kelvinToCelsius(tempInKelvin));
+        setMinTempFahrenheit(kelvinToFahrenheit(tempInKelvin));
     }
 
-    public void setMaxTemp(double tempInKelvin){
-        setMaxTempCelsius(roundToTwoPlaces(kelvinToCelsius(tempInKelvin)));
-        setMaxTempFahrenheit(roundToTwoPlaces(kelvinToFahrenheit(tempInKelvin)));
+    public void setMaxTemp(float tempInKelvin){
+        setMaxTempCelsius(kelvinToCelsius(tempInKelvin));
+        setMaxTempFahrenheit(kelvinToFahrenheit(tempInKelvin));
     }
 
     // TODO: Add cloud, rain and snow details
