@@ -11,7 +11,7 @@ Get today's forecast.
 ### Running
  To run the program:
 
-``` /gradlew bootRun ```
+``` ./gradlew bootRun ```
 
 Go to the url:
 
