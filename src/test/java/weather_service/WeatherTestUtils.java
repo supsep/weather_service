@@ -18,7 +18,7 @@ public class WeatherTestUtils {
 
   public WeatherReport createWeatherReport() {
     WeatherReport weatherReport = new WeatherReport();
-    weatherReport.setTimestamp(new Date().getTime());
+    weatherReport.setTimestamp(1559518134L);
     weatherReport.setLocation(createLocation());
     weatherReport.setWeather(createWeather());
     return weatherReport;
@@ -30,7 +30,7 @@ public class WeatherTestUtils {
     location.setLat(51.51);
     location.setLon(-0.13);
     location.setCountry("GB");
-    location.setId("5091");
+    location.setId("2643743");
     return location;
   }
 
@@ -47,6 +47,8 @@ public class WeatherTestUtils {
     weather.setVisibility(10000);
     weather.setWindSpeed(4.1);
     weather.setWindDegrees(80);
+    weather.setSunrise(1559533676L);
+    weather.setSunset(1559592577);
     return weather;
   }
 }

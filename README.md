@@ -1,7 +1,7 @@
 
 
 # Weather Report
-Get todays forecast.
+Get today's forecast.
 
 ## Getting Started
  ### Prerequisites
@@ -14,27 +14,13 @@ Get todays forecast.
 ``` /gradlew bootRun ```
 
 Go to the url:
-```  http://localhost:8080/weatherRequest ```
 
-### Report
-
-
- ## Complexity
-#### Time complexity
-
-#### Space complexity
-
- #### Execution time
-  * Until program is terminated
-
-
-
-
-## Input criteria
+```  http://localhost:8080/weatherReport ```
 
 ## Running the tests
 
  To run the unit tests:
+ 
 ``` ./gradlew test ```
 
  ## Built With
@@ -47,6 +33,8 @@ Go to the url:
 * ThymeLeaf
 * Google Java Style Guide
 * Lombok
+* Mockito
+* Junit 
 
 ## Resources
  * [openweathermap](openweathermap.org)

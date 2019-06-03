@@ -18,11 +18,13 @@ import java.net.URI;
 @Slf4j
 @Service
 public class WeatherApiServiceImpl implements WeatherApiService {
-    private RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate restTemplate;
     private String apiEndpoint;
     private String apiKey;
 
-    public WeatherApiServiceImpl(WeatherApplicationProperties weatherApplicationProperties) {
+    public WeatherApiServiceImpl(RestTemplate restTemplate,
+        WeatherApplicationProperties weatherApplicationProperties) {
+        this.restTemplate = restTemplate;
         this.apiKey = weatherApplicationProperties.getKey();
         this.apiEndpoint = weatherApplicationProperties.getEndpoint();
     }

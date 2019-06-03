@@ -3,6 +3,7 @@ package weather_service.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -62,17 +63,20 @@ public class WeatherReport implements Serializable {
 
     @JsonSetter("main")
     public void setMain(Map<String, Object> main) {
-        getWeather().setTemp((float) main.get("temp"));
-        getWeather().setMinTemp((float) main.get("temp_min"));
-        getWeather().setMaxTemp((float) main.get("temp_max"));
+        getWeather().setTemp((double) main.get("temp"));
+        getWeather().setMinTemp((double) main.get("temp_min"));
+        getWeather().setMaxTemp((double) main.get("temp_max"));
         getWeather().setPressure((int) main.get("pressure"));
         getWeather().setHumidity((int) main.get("humidity"));
     }
 
-    @JsonSetter("_wind")
+    @JsonSetter(value = "wind", nulls = Nulls.SET)
     public void setWind(Map<String, Object> wind) {
         getWeather().setWindSpeed((double) wind.get("speed"));
-        getWeather().setWindDegrees((int) wind.get("deg"));
+
+        if (wind.containsKey("deg")) {
+            getWeather().setWindDegrees((int) wind.get("deg"));
+        }
     }
 
     @JsonSetter("sys")

@@ -8,32 +8,32 @@ import lombok.experimental.UtilityClass;
 public class TemperatureUtility {
 
   /**
-   * Convert float representing kelvin temperature to Celsius.
+   * Convert double representing kelvin temperature to Celsius.
    * @param tempInKelvin Temperature in Kelvin.
-   * @return float Temperature in Celsius.
+   * @return double Temperature in Celsius.
    */
-  public static float kelvinToCelsius(float tempInKelvin) {
-    float tempInCelsius = tempInKelvin - 273.15F;
+  public static double kelvinToCelsius(double tempInKelvin) {
+    double tempInCelsius = tempInKelvin - 273.15F;
     return roundToTwoPlaces(tempInCelsius);
   }
   /**
-   * Convert float representing kelvin temperature to Fahrenheit.
+   * Convert double representing kelvin temperature to Fahrenheit.
    * @param tempInKelvin Temperature in Kelvin.
-   * @return float Temperature in Fahrenheit.
+   * @return double Temperature in Fahrenheit.
    */
-  public static float kelvinToFahrenheit(float tempInKelvin) {
-    float tempInFahrenheit = tempInKelvin * 1.8F - 459.67F;
+  public static double kelvinToFahrenheit(double tempInKelvin) {
+    double tempInFahrenheit = tempInKelvin * 1.8F - 459.67F;
     return roundToTwoPlaces(tempInFahrenheit);
   }
 
   /**
-   * Round float value to two decimal places.
-   * @param value float
-   * @return float rounded to two decimal places.
+   * Round double value to two decimal places.
+   * @param value double
+   * @return double rounded to two decimal places.
    */
-  public static float roundToTwoPlaces(float value) {
+  public static double roundToTwoPlaces(double value) {
     BigDecimal bd = new BigDecimal(value);
     bd = bd.setScale(2, RoundingMode.HALF_UP);
-    return bd.floatValue();
+    return bd.doubleValue();
   }
 }

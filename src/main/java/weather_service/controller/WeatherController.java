@@ -71,6 +71,7 @@ public class WeatherController {
      */
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(Exception ex) {
+        log.error("Encountered error: {}", ex);
         ModelAndView model = new ModelAndView("error");
         return model;
     }

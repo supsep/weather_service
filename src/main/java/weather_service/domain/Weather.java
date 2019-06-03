@@ -19,18 +19,18 @@ public class Weather implements Serializable {
     private String icon;
 
     // Temperature in Kelvin
-    private float tempCelsius;
-    private float tempFahrenheit;
+    private double tempCelsius;
+    private double tempFahrenheit;
 
     // Minimum temperature at the moment. This is deviation from current temp that is possible for
     // large cities and megalopolises geographically expanded
-    private float minTempCelsius;
-    private float minTempFahrenheit;
+    private double minTempCelsius;
+    private double minTempFahrenheit;
 
     // Minimum temperature at the moment. This is deviation from current temp that is possible for
     // large cities and megalopolises geographically expanded
-    private float maxTempCelsius;
-    private float maxTempFahrenheit;
+    private double maxTempCelsius;
+    private double maxTempFahrenheit;
 
     // Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
     private int pressure;
@@ -53,17 +53,17 @@ public class Weather implements Serializable {
     // Visibility in meters
     private long visibility;
 
-    public void setTemp(float tempInKelvin){
+    public void setTemp(double tempInKelvin){
         setTempCelsius(kelvinToCelsius(tempInKelvin));
         setTempFahrenheit(kelvinToFahrenheit(tempInKelvin));
     }
 
-    public void setMinTemp(float tempInKelvin){
+    public void setMinTemp(double tempInKelvin){
         setMinTempCelsius(kelvinToCelsius(tempInKelvin));
         setMinTempFahrenheit(kelvinToFahrenheit(tempInKelvin));
     }
 
-    public void setMaxTemp(float tempInKelvin){
+    public void setMaxTemp(double tempInKelvin){
         setMaxTempCelsius(kelvinToCelsius(tempInKelvin));
         setMaxTempFahrenheit(kelvinToFahrenheit(tempInKelvin));
     }
